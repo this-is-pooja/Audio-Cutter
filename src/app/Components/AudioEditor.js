@@ -89,8 +89,8 @@ const AudioEditor = ({ file, fileName, setFile }) => {
 
   return (
     <>
-      <Box right={0} mt={20} onClick={() => setFile(null)}>
-        <RxCross1 />
+      <Box pos={"absolute"} right={55} mt={40} onClick={() => setFile(null)} style={{cursor:"pointer"}}>
+        <RxCross1 color="#6a7380" fontSize={30}/>
       </Box>
       <Box ml={"20%"} mt={"10%"}>
         <Text

@@ -10,7 +10,7 @@ export default function Cutter() {
   const [fileName,setFileName]=useState(null);
 
   return file ? (
-    <AudioEditor file={file} fileName={fileName}/>
+    <AudioEditor file={file} fileName={fileName}setFile={setFile}/>
   ) : (
     <Box mt={"16%"} align="center" ml={"30%"}>
       <Flex gap={30} justify={"center"} mb={50}>
