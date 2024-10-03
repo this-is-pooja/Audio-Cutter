@@ -7,9 +7,10 @@ import AudioEditor from "../app/Components/AudioEditor";
 
 export default function Cutter() {
   const [file, setFile] = useState(null);
+  const [fileName,setFileName]=useState(null);
 
   return file ? (
-    <AudioEditor file={file}/>
+    <AudioEditor file={file} fileName={fileName}/>
   ) : (
     <Box mt={"16%"} align="center" ml={"30%"}>
       <Flex gap={30} justify={"center"} mb={50}>
@@ -31,6 +32,7 @@ export default function Cutter() {
         if (file) {
           const fileURL = URL.createObjectURL(file); 
           setFile(fileURL); 
+          setFileName(file?.name);
         }
       }}
       >
