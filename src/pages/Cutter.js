@@ -3,10 +3,14 @@
 import { Box, Button, FileButton, Flex, Text, Title } from "@mantine/core";
 import React, { useState } from "react";
 
+import AudioEditor from "../app/Components/AudioEditor";
+
 export default function Cutter() {
   const [file, setFile] = useState(null);
-  
-  return (
+
+  return file ? (
+    <AudioEditor file={file}/>
+  ) : (
     <Box mt={"16%"} align="center" ml={"30%"}>
       <Flex gap={30} justify={"center"} mb={50}>
         <Text fz="md" fw="600" c={"#fff"}>
@@ -22,7 +26,14 @@ export default function Cutter() {
       <Title fz={"22px"} m={"25px 0 40px 0"} c="#fff">
         Free editor to trim and cut any audio file online
       </Title>
-      <FileButton onChange={setFile} accept="audio/*">
+      <FileButton  accept="audio/*"
+       onChange={(file) => {
+        if (file) {
+          const fileURL = URL.createObjectURL(file); 
+          setFile(fileURL); 
+        }
+      }}
+      >
         {(props) => (
           <Button
             radius={"24px"}
